@@ -1,0 +1,593 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T19:04:57.201Z",
+  "title": "Design System: Patelin",
+  "extensions": {
+    "colorMeta": {
+      "tricolore-blue": {
+        "role": "primary",
+        "displayName": "Tricolore Blue",
+        "canonical": "#2f6fed",
+        "oklch": "oklch(57.4% 0.202 262.0)",
+        "tonalRamp": [
+          "#010045",
+          "#000e70",
+          "#00309f",
+          "#1151cc",
+          "#3777f6",
+          "#5b9eff",
+          "#87c7ff",
+          "#b2eeff"
+        ]
+      },
+      "tricolore-blue-ink": {
+        "role": "primary",
+        "displayName": "Tricolore Blue Ink",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "poppy-red": {
+        "role": "secondary",
+        "displayName": "Poppy Red",
+        "canonical": "#ff5a4f",
+        "oklch": "oklch(68.7% 0.202 27.5)",
+        "tonalRamp": [
+          "#320000",
+          "#5c0000",
+          "#880000",
+          "#b40006",
+          "#df3b34",
+          "#ff6559",
+          "#ff9586",
+          "#ffc2b2"
+        ]
+      },
+      "binder-cream": {
+        "role": "neutral",
+        "displayName": "Binder Cream",
+        "canonical": "#fff8ec",
+        "oklch": "oklch(98.1% 0.018 81.3)",
+        "tonalRamp": [
+          "#0f0a04",
+          "#28231a",
+          "#443f35",
+          "#635d53",
+          "#867f75",
+          "#aaa499",
+          "#d0cabe",
+          "#f5eee2"
+        ]
+      },
+      "page-white": {
+        "role": "neutral",
+        "displayName": "Page White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "ink-navy": {
+        "role": "neutral",
+        "displayName": "Ink Navy",
+        "canonical": "#1f2433",
+        "oklch": "oklch(26.2% 0.029 270.1)",
+        "tonalRamp": [
+          "#070a17",
+          "#1e2332",
+          "#3a3f50",
+          "#575d6f",
+          "#798092",
+          "#9da4b8",
+          "#c3cade",
+          "#e7eeff"
+        ]
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "canonical": "#646b7d",
+        "oklch": "oklch(52.8% 0.030 268.6)",
+        "tonalRamp": [
+          "#060a18",
+          "#1e2433",
+          "#393f50",
+          "#565d6f",
+          "#798093",
+          "#9da4b8",
+          "#c2cadf",
+          "#e6eeff"
+        ]
+      },
+      "kraft-line": {
+        "role": "neutral",
+        "displayName": "Kraft Line",
+        "canonical": "#ead9bd",
+        "oklch": "oklch(89.2% 0.042 80.3)",
+        "tonalRamp": [
+          "#140800",
+          "#2e220a",
+          "#4b3d26",
+          "#6a5b43",
+          "#8d7e64",
+          "#b2a288",
+          "#d9c8ad",
+          "#fdecd0"
+        ]
+      },
+      "night-binder": {
+        "role": "neutral",
+        "displayName": "Night Binder (dark background)",
+        "canonical": "#161a26",
+        "oklch": "oklch(22.0% 0.024 270.1)",
+        "tonalRamp": [
+          "#070b15",
+          "#1f2430",
+          "#3b3f4d",
+          "#585d6c",
+          "#7a808f",
+          "#9ea4b4",
+          "#c4cadb",
+          "#e8eeff"
+        ]
+      },
+      "night-page": {
+        "role": "neutral",
+        "displayName": "Night Page (dark surface)",
+        "canonical": "#212636",
+        "oklch": "oklch(27.1% 0.031 270.8)",
+        "tonalRamp": [
+          "#070a18",
+          "#1e2333",
+          "#393f50",
+          "#575d6f",
+          "#798093",
+          "#9da4b9",
+          "#c3cadf",
+          "#e7eeff"
+        ]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink (dark text)",
+        "canonical": "#f4efe6",
+        "oklch": "oklch(95.4% 0.013 82.4)",
+        "tonalRamp": [
+          "#0e0b06",
+          "#27241d",
+          "#433f38",
+          "#615d55",
+          "#848078",
+          "#a9a49c",
+          "#cfcac1",
+          "#f3eee5"
+        ]
+      },
+      "night-muted": {
+        "role": "neutral",
+        "displayName": "Night Muted (dark secondary text)",
+        "canonical": "#a3a9b8",
+        "oklch": "oklch(73.5% 0.023 268.4)",
+        "tonalRamp": [
+          "#070b15",
+          "#1f242f",
+          "#3b3f4c",
+          "#585d6b",
+          "#7a808e",
+          "#9ea4b3",
+          "#c4cada",
+          "#e8eefe"
+        ]
+      },
+      "night-line": {
+        "role": "neutral",
+        "displayName": "Night Line (dark border)",
+        "canonical": "#343a4d",
+        "oklch": "oklch(35.1% 0.034 271.0)",
+        "tonalRamp": [
+          "#060a19",
+          "#1e2335",
+          "#393f52",
+          "#565d71",
+          "#788095",
+          "#9ca4bb",
+          "#c2cae2",
+          "#e6eeff"
+        ]
+      },
+      "tier-commune": {
+        "role": "tertiary",
+        "displayName": "Fieldstone Gray (Commune)",
+        "canonical": "#8a94a6",
+        "oklch": "oklch(66.4% 0.029 262.3)",
+        "tonalRamp": [
+          "#050b17",
+          "#1c2432",
+          "#37404f",
+          "#555e6f",
+          "#778192",
+          "#9ba5b7",
+          "#c0cbde",
+          "#e4efff"
+        ]
+      },
+      "tier-peu-commune": {
+        "role": "tertiary",
+        "displayName": "Meadow Green (Peu commune)",
+        "canonical": "#3fae5a",
+        "oklch": "oklch(66.8% 0.158 148.4)",
+        "tonalRamp": [
+          "#001500",
+          "#003300",
+          "#005300",
+          "#007421",
+          "#239946",
+          "#52bf6a",
+          "#80e592",
+          "#afffbc"
+        ]
+      },
+      "tier-rare": {
+        "role": "tertiary",
+        "displayName": "Lake Blue (Rare)",
+        "canonical": "#2f80ed",
+        "oklch": "oklch(60.9% 0.182 257.3)",
+        "tonalRamp": [
+          "#000040",
+          "#00176a",
+          "#003796",
+          "#0057c1",
+          "#2c7dea",
+          "#53a4ff",
+          "#81ccff",
+          "#aef1ff"
+        ]
+      },
+      "tier-epique": {
+        "role": "tertiary",
+        "displayName": "Lavender Violet (Épique)",
+        "canonical": "#8b5cf6",
+        "oklch": "oklch(60.6% 0.219 292.7)",
+        "tonalRamp": [
+          "#160043",
+          "#2e006e",
+          "#4a099c",
+          "#6830ca",
+          "#895af4",
+          "#ad82ff",
+          "#d1aeff",
+          "#f3d7ff"
+        ]
+      },
+      "tier-legendaire": {
+        "role": "tertiary",
+        "displayName": "Sunflower Amber (Légendaire)",
+        "canonical": "#f5a623",
+        "oklch": "oklch(78.4% 0.159 73.0)",
+        "tonalRamp": [
+          "#250000",
+          "#470d00",
+          "#6d2900",
+          "#914800",
+          "#b86d00",
+          "#df9200",
+          "#ffb94b",
+          "#ffe084"
+        ]
+      },
+      "tier-mythique": {
+        "role": "tertiary",
+        "displayName": "Fuchsia (Mythique)",
+        "canonical": "#e83e8c",
+        "oklch": "oklch(63.6% 0.214 357.4)",
+        "tonalRamp": [
+          "#2f000b",
+          "#580025",
+          "#840040",
+          "#b0005e",
+          "#db2f81",
+          "#ff5ca6",
+          "#ff8ecb",
+          "#ffbcef"
+        ]
+      },
+      "postcard-paper": {
+        "role": "tertiary",
+        "displayName": "Postcard Paper",
+        "canonical": "#f3e6cf",
+        "oklch": "oklch(92.9% 0.034 82.0)",
+        "tonalRamp": [
+          "#120900",
+          "#2c2210",
+          "#493e2b",
+          "#675c48",
+          "#8a7f6a",
+          "#afa38d",
+          "#d6c9b2",
+          "#faedd6"
+        ]
+      },
+      "postcard-ink": {
+        "role": "tertiary",
+        "displayName": "Postcard Ink",
+        "canonical": "#3d2b1f",
+        "oklch": "oklch(30.7% 0.034 54.8)",
+        "tonalRamp": [
+          "#160701",
+          "#312014",
+          "#4e3b2f",
+          "#6d594c",
+          "#917b6d",
+          "#b6a091",
+          "#ddc5b6",
+          "#ffe9da"
+        ]
+      },
+      "postcard-frame": {
+        "role": "tertiary",
+        "displayName": "Postcard Frame",
+        "canonical": "#8a6a4a",
+        "oklch": "oklch(54.8% 0.062 66.0)",
+        "tonalRamp": [
+          "#1b0400",
+          "#381d00",
+          "#563919",
+          "#765737",
+          "#9a7959",
+          "#c09d7c",
+          "#e7c3a1",
+          "#ffe7c4"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The home page's Patelin title, in Tricolore Blue."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Container and booster offer titles."
+      },
+      "card-name": {
+        "displayName": "Card name",
+        "purpose": "Commune name on its card; scales with the card width (cqw), two lines at most."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running text."
+      },
+      "body-lead": {
+        "displayName": "Lead",
+        "purpose": "Home page lead, max about 36rem wide."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, nav links, chips, help text, counts."
+      }
+    },
+    "shadows": [
+      {
+        "name": "held-object",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "purpose": "Commune cards, card backs and booster packs."
+      },
+      {
+        "name": "pressable",
+        "value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "purpose": "Primary pill buttons and stickers."
+      },
+      {
+        "name": "rarity-glow",
+        "value": "a tier-colored halo, blur 24px, inset -8px, opacity 0.7, fades in over 700ms",
+        "purpose": "Only behind the fifth booster card once it flips."
+      }
+    ],
+    "motion": [
+      {
+        "name": "booster-shake",
+        "value": "booster-shake 0.5s ease-in-out infinite (rotate ±6deg, scale 1.03)",
+        "purpose": "The pack while a booster opens."
+      },
+      {
+        "name": "card-flip",
+        "value": "transform 500ms (rotateY 180deg)",
+        "purpose": "Turning a booster card over."
+      },
+      {
+        "name": "card-pop",
+        "value": "card-pop 0.6s ease-out 0.35s (scale 1 → 1.08 → 1)",
+        "purpose": "The fifth card when it flips."
+      },
+      {
+        "name": "auto-reveal-step",
+        "value": "450ms",
+        "purpose": "Pause between cards for Tout retourner."
+      },
+      {
+        "name": "glow-fade",
+        "value": "opacity 700ms",
+        "purpose": "The rarity glow fading in."
+      },
+      {
+        "name": "tile-lift",
+        "value": "translateY(-4px) on hover",
+        "purpose": "Collection grid cards."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "Header nav replaces the bottom tab bar."
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one main action of a view.",
+      "html": "<button class=\"ds-btn-primary\">Ouvrir un booster</button>",
+      "css": ".ds-btn-primary { background: var(--color-accent, #ff5a4f); color: #ffffff; font-family: var(--font-nunito, Nunito, system-ui, sans-serif); font-weight: 600; font-size: 16px; padding: 12px 24px; border-radius: 9999px; border: none; cursor: pointer; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); transition: transform 120ms ease-out; } .ds-btn-primary:hover { transform: translateY(-1px); } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid #2f6fed; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Brand Button",
+      "kind": "button",
+      "refersTo": "button-brand",
+      "description": "Form submission.",
+      "html": "<button class=\"ds-btn-brand\">Valider</button>",
+      "css": ".ds-btn-brand { background: var(--color-brand, #2f6fed); color: #ffffff; font-family: var(--font-nunito, Nunito, system-ui, sans-serif); font-weight: 600; font-size: 16px; padding: 12px 24px; border-radius: 9999px; border: none; cursor: pointer; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); transition: transform 120ms ease-out; } .ds-btn-brand:hover { transform: translateY(-1px); } .ds-btn-brand:active { transform: scale(0.97); } .ds-btn-brand:focus-visible { outline: 2px solid #2f6fed; outline-offset: 2px; } .ds-btn-brand:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The alternative next to a primary action, and pagination.",
+      "html": "<button class=\"ds-btn-secondary\">Voir ma collection</button>",
+      "css": ".ds-btn-secondary { background: var(--surface, #ffffff); color: var(--foreground, #1f2433); font-family: var(--font-nunito, Nunito, system-ui, sans-serif); font-weight: 600; font-size: 16px; padding: 12px 24px; border-radius: 9999px; border: 1px solid var(--border, #ead9bd); cursor: pointer; box-shadow: none; transition: transform 120ms ease-out; } .ds-btn-secondary:hover { transform: translateY(-1px); } .ds-btn-secondary:active { transform: scale(0.97); } .ds-btn-secondary:focus-visible { outline: 2px solid #2f6fed; outline-offset: 2px; } .ds-btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Search and filter fields.",
+      "html": "<input class=\"ds-field\" placeholder=\"Chercher une commune\" />",
+      "css": ".ds-field { height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--border, #ead9bd); background: var(--surface, #ffffff); color: var(--foreground, #1f2433); font-family: var(--font-nunito, Nunito, system-ui, sans-serif); font-size: 16px; } .ds-field::placeholder { color: var(--muted, #646b7d); } .ds-field:focus-visible { outline: 2px solid #2f6fed; outline-offset: 1px; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link-active",
+      "description": "Desktop pill links; on mobile they become a bottom tab bar.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link is-active\" href=\"#\">Accueil</a><a class=\"ds-nav-link\" href=\"#\">Boosters</a><a class=\"ds-nav-link\" href=\"#\">Collection</a><a class=\"ds-nav-link\" href=\"#\">Market</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 4px; } .ds-nav-link { padding: 8px 16px; border-radius: 9999px; font-family: var(--font-nunito, Nunito, system-ui, sans-serif); font-weight: 600; font-size: 14px; color: var(--muted, #646b7d); text-decoration: none; transition: color 150ms; } .ds-nav-link:hover { color: var(--foreground, #1f2433); } .ds-nav-link.is-active { background: #2f6fed; color: #ffffff; } .ds-nav-link:focus-visible { outline: 2px solid #2f6fed; outline-offset: 2px; }"
+    },
+    {
+      "name": "Chips",
+      "kind": "chip",
+      "refersTo": "chip-new",
+      "description": "New-card count and set progress after an opening.",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-chip-new\">+2 nouvelles</span><span class=\"ds-chip-set\">Ain <strong>12 / 393</strong></span></div>",
+      "css": ".ds-chips { display: flex; gap: 8px; flex-wrap: wrap; font-family: var(--font-nunito, Nunito, system-ui, sans-serif); font-size: 16px; } .ds-chip-new { background: #ff5a4f; color: #fff; font-weight: 600; padding: 4px 12px; border-radius: 9999px; } .ds-chip-set { border: 1px solid var(--border, #ead9bd); color: var(--foreground, #1f2433); padding: 4px 12px; border-radius: 9999px; }"
+    },
+    {
+      "name": "Container",
+      "kind": "card",
+      "refersTo": "container",
+      "description": "White sleeve on the cream page: offers, summaries, empty states.",
+      "html": "<section class=\"ds-container\"><h2>Booster gratuit</h2><p>3 / 8 en stock</p></section>",
+      "css": ".ds-container { background: var(--surface, #ffffff); border: 1px solid var(--border, #ead9bd); border-radius: 16px; padding: 20px; color: var(--foreground, #1f2433); font-family: var(--font-nunito, Nunito, system-ui, sans-serif); } .ds-container h2 { margin: 0 0 8px; font-family: var(--font-fredoka, Fredoka, system-ui, sans-serif); font-weight: 600; font-size: 20px; } .ds-container p { margin: 0; color: var(--muted, #646b7d); font-size: 14px; }"
+    },
+    {
+      "name": "Commune Card",
+      "kind": "custom",
+      "description": "The signature 5:7 card framed in its tier color (shown here as Mythique, with placeholder data).",
+      "html": "<article class=\"ds-card\"><header><h3>Nom de la commune</h3><p>Département · 00</p></header><div class=\"ds-card-photo\"><span class=\"ds-card-new\">Nouvelle !</span><p>Auteur · CC BY-SA 4.0</p></div><dl><dd><b>0 000</b> hab.</dd><dd><b>0,0</b> km²</dd></dl><footer>Mythique</footer></article>",
+      "css": ".ds-card { container-type: inline-size; width: 200px; aspect-ratio: 5 / 7; display: flex; flex-direction: column; overflow: hidden; border-radius: 12px; border: 5px solid #e83e8c; background: var(--surface, #ffffff); color: var(--foreground, #1f2433); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); font-family: var(--font-nunito, Nunito, system-ui, sans-serif); } .ds-card header { padding: 8px 10px 6px; } .ds-card h3 { margin: 0; font-family: var(--font-fredoka, Fredoka, system-ui, sans-serif); font-weight: 600; font-size: 18px; line-height: 1.05; } .ds-card header p { margin: 2px 0 0; font-size: 12px; opacity: 0.7; } .ds-card-photo { position: relative; margin: 0 8px; aspect-ratio: 4 / 3; border-radius: 6px; background: linear-gradient(#8fd3ff, #d8f1ff 55%, #7cc576 56%); } .ds-card-photo p { position: absolute; inset: auto 0 0; margin: 0; padding: 8px 6px 3px; font-size: 9px; color: #fff; background: linear-gradient(to top, rgb(0 0 0 / 0.7), transparent); } .ds-card-new { position: absolute; top: 4px; right: 4px; transform: rotate(6deg); background: #ff5a4f; color: #fff; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 9999px; box-shadow: 0 1px 3px rgb(0 0 0 / 0.2); } .ds-card dl { flex: 1; display: flex; justify-content: space-between; align-items: center; margin: 0; padding: 0 10px; font-size: 12px; } .ds-card dd { margin: 0; opacity: 0.85; } .ds-card dd b { opacity: 1; } .ds-card footer { padding: 5px 10px; background: #e83e8c; color: #fff; font-weight: 600; font-size: 12px; }"
+    },
+    {
+      "name": "Booster Pack",
+      "kind": "custom",
+      "description": "Striped 3:4 pack with the tilted wordmark sticker; shakes while opening.",
+      "html": "<div class=\"ds-pack\"><span>Patelin</span></div>",
+      "css": ".ds-pack { width: 80px; aspect-ratio: 3 / 4; border-radius: 12px; display: flex; align-items: center; justify-content: center; background-color: #2f6fed; background-image: repeating-linear-gradient(135deg, rgb(255 255 255 / 0.16) 0 6px, transparent 6px 14px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); transition: transform 200ms; } .ds-pack:hover { transform: rotate(-3deg) scale(1.03); } .ds-pack span { transform: rotate(-12deg); background: #fff; color: #1f2433; padding: 0 6px; border-radius: 6px; font-family: var(--font-fredoka, Fredoka, system-ui, sans-serif); font-weight: 600; font-size: 14px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Collector's Binder",
+    "overview": "Patelin is a binder you leaf through. The pages are calm and warm: cream paper (Binder Cream), white sleeves (Page White), thin kraft-colored lines. All the strong color belongs to what sits in the sleeves, the commune cards, framed in their tier color. The interface stays quiet so a Mythique frame, a \"Nouvelle !\" sticker or a tier glow reads as an event.\n\nThe art direction is \"cartoon, grand public\", as the spec sets it. The cartoon lives in the rounded Fredoka titles, the hand-drawn fallback villages, the tilted stickers and the chunky pill buttons, not in noise around them. Everything in the hand should feel toyful: round, bold, tactile, with clear feedback when pressed.\n\nDensity is low and mobile-first. One column of content, never wider than 1024px, with cards in a 2-column grid on phones that grows to 5 on desktop. The system rejects casino gacha: no gold and neon flooding the screen, no flashing loot boxes, no pressure loops. Excitement comes from the card itself, once, at the moment it turns over.",
+    "keyCharacteristics": [
+      "Warm cream page, white containers, kraft hairlines; color is held back for the cards.",
+      "Six tier colors are the loudest thing on any screen, and they always mean rarity.",
+      "Rounded Fredoka for anything with a name, Nunito for everything read.",
+      "Pills for every action, 16px-radius containers, 5:7 cards with corners that scale with the card.",
+      "Motion only around opening a booster, always with a reduced-motion fallback.",
+      "Full light and dark themes, following the system setting."
+    ],
+    "rules": [
+      {
+        "name": "The Sleeve Rule",
+        "body": "Strong color lives on the cards and the packs, not on the page. Pages stay cream, white and navy; if a screen without cards looks colorful, something borrowed a card's color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Rarity Monopoly Rule",
+        "body": "A tier color means that tier and nothing else. Never use Meadow Green for success, Fuchsia for a promo or Sunflower Amber for a warning. The one standing exception is Lavender Violet on the département pack.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Red Button Rule",
+        "body": "Poppy Red marks the single main action of a view. A second action next to it is a secondary pill (white, kraft border).",
+        "section": "colors"
+      },
+      {
+        "name": "The Named Things Rule",
+        "body": "Fredoka is for things that have a name: the game, a page, a booster, a commune. Sentences, numbers and controls are Nunito.",
+        "section": "typography"
+      },
+      {
+        "name": "The French Numbers Rule",
+        "body": "Every number is formatted with toLocaleString(\"fr-FR\") (thin-space thousands, comma decimals), followed by a lighter unit (\"hab.\", \"km²\").",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Page Rule",
+        "body": "Containers, the header and the tab bar carry no shadow. Only collectibles and pressable pills get lifted.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Earned Glow Rule",
+        "body": "A glow is a reward. It appears only around a card that just turned over, in that card's tier color.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep pages Binder Cream, Page White and Ink Navy, and let the cards bring the color (the Sleeve Rule).",
+      "Do use the --color-tier-* tokens for anything about rarity, and only for rarity.",
+      "Do make every action a pill, with one Poppy Red primary per view.",
+      "Do show the photo's author and license on the face of every card that has a photo.",
+      "Do size anything that lives inside a card in cqw, so it scales with the card.",
+      "Do give every motion a motion-reduce fallback, and animate transforms and opacity only (they stay smooth on low-end phones).",
+      "Do check both themes. Brand, accent and tier colors are shared, so they must work on Binder Cream and on Night Binder."
+    ],
+    "donts": [
+      "Don't look like casino gacha: no gold or neon washes, no flashing or looping loot-box effects, no countdown pressure beyond the plain \"Le prochain arrive dans … min.\"",
+      "Don't use a tier color for status, success or decoration.",
+      "Don't shadow layout containers, the header or the tab bar.",
+      "Don't put white text on Poppy Red below 18px bold: it's 3.1:1. The current 16px semibold button labels fall short of AA and need a deeper red or larger text. Poppy Red error text on Binder Cream is 2.9:1, which is also too low.",
+      "Don't set small white text on tier colors as they stand. On the card's footer band, white reaches only 2.0:1 on Sunflower Amber, 2.8:1 on Meadow Green and 3.1 to 4.2:1 on the others, all under AA for 10 to 16px text. The tier name needs a dark ink on the light tiers or deeper tier shades.",
+      "Don't show a commune name on any map element for a commune the player doesn't own."
+    ]
+  }
+}

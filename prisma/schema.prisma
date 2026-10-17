@@ -44,6 +44,8 @@ model Department {
 model Commune {
   inseeCode      String     @id
   name           String
+  // Lowercase, accent-free name for the collection search (lib/search.ts): "Bœurs" → "boeurs".
+  searchName     String
   departmentCode String
   department     Department @relation(fields: [departmentCode], references: [code])
   regionCode     String
@@ -77,8 +79,10 @@ model Commune {
   // When data:postcards last looked for a postcard, so that an interrupted run can resume.
   postcardCheckedAt DateTime?
 
-  setMembers SetMember[]
-  updatedAt  DateTime    @updatedAt
+  setMembers    SetMember[]
+  cardStacks    CardStack[]
+  cardInstances CardInstance[]
+  updatedAt     DateTime       @updatedAt
 
   @@index([departmentCode])
   @@index([regionCode])
@@ -133,6 +137,12 @@ model User {
   sessions       Session[]
   accounts       Account[]
 
+  // Free booster stock, computed on the fly (lib/free-boosters.ts). Null means a full stock.
+  freeBoostersFrom DateTime?
+  boosters         Booster[]
+  cardStacks       CardStack[]
+  cardInstances    CardInstance[]
+
   @@map("user")
 }
 
@@ -181,4 +191,78 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+// ---------------------------------------------------------------------------
+// Boosters and cards (phase 3).
+
+enum BoosterKind {
+  // Taken from the free stock, which refills over time.
+  FREE
+  // Given at the first visit of the day.
+  DAILY
+  // Cards of the department of the day only.
+  DEPARTMENT
+}
+
+model Booster {
+  id             String         @id @default(uuid(7))
+  userId         String
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind           BoosterKind
+  // Department a DEPARTMENT booster draws from.
+  departmentCode String?
+  // Paris calendar day of a DAILY or DEPARTMENT booster: one of each per player and per day.
+  // Null for FREE boosters, which the unique index below then leaves alone.
+  day            DateTime?      @db.Date
+  createdAt      DateTime       @default(now())
+  // Set once, by the transaction that opens the booster.
+  openedAt       DateTime?
+  // INSEE codes drawn at opening, in reveal order: the guaranteed Rare-or-better card comes last.
+  communeCodes   String[]       @default([])
+  // Positions in communeCodes of the cards that were the player's first of their commune.
+  newPositions   Int[]          @default([])
+  cardInstances  CardInstance[]
+
+  @@unique([userId, kind, day])
+  @@index([userId, openedAt])
+}
+
+// Normal cards are interchangeable: one row per player and commune holds how many they have.
+// The row is created by the first card of a commune the player receives, whatever its kind, and
+// stays when count drops to 0: its existence means "this commune is no longer new to them".
+model CardStack {
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  inseeCode       String
+  commune         Commune  @relation(fields: [inseeCode], references: [inseeCode])
+  // Never negative (CHECK constraint in the migration).
+  count           Int
+  firstObtainedAt DateTime @default(now())
+
+  @@id([userId, inseeCode])
+  @@index([inseeCode])
+}
+
+enum CardVariant {
+  // An old public-domain postcard in place of the photo.
+  POSTCARD
+}
+
+// A unique copy: a variant today, a decorated card from phase 4. It has one owner at a time.
+model CardInstance {
+  id         String       @id @default(uuid(7))
+  ownerId    String
+  owner      User         @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  inseeCode  String
+  commune    Commune      @relation(fields: [inseeCode], references: [inseeCode])
+  variant    CardVariant?
+  // Tier of the commune when the card was drawn: a later INSEE update does not change it.
+  tier       Tier
+  boosterId  String?
+  booster    Booster?     @relation(fields: [boosterId], references: [id], onDelete: SetNull)
+  obtainedAt DateTime     @default(now())
+
+  @@index([ownerId, inseeCode])
+  @@index([inseeCode])
 }

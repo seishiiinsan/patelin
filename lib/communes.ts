@@ -1,5 +1,6 @@
 import type { Tier as DbTier } from "@/generated/prisma/enums";
-import { tierForPopulation, type TierKey } from "./tiers";
+import { searchKey } from "./search";
+import { TIERS, tierForPopulation, type Tier, type TierKey } from "./tiers";
 
 // Overseas departments (DROM) kept in the game; other overseas collectivities are left out.
 export const DROM_CODES = new Set(["971", "972", "973", "974", "976"]);
@@ -30,6 +31,11 @@ export function dbTierForPopulation(population: number): DbTier {
   return DB_TIERS[tierForPopulation(population).key];
 }
 
+// Label and color key of a tier stored in the database.
+export function tierFromDb(dbTier: DbTier): Tier {
+  return TIERS.find((tier) => DB_TIERS[tier.key] === dbTier) ?? TIERS[0];
+}
+
 // Shape returned by geo.api.gouv.fr/communes with the fields the import asks for.
 export type GeoApiCommune = {
   code: string;
@@ -44,6 +50,7 @@ export type GeoApiCommune = {
 export type CommuneRow = {
   inseeCode: string;
   name: string;
+  searchName: string;
   departmentCode: string;
   regionCode: string;
   population: number;
@@ -66,6 +73,7 @@ export function toCommuneRow(raw: GeoApiCommune): CommuneRow | null {
   return {
     inseeCode: raw.code,
     name: raw.nom,
+    searchName: searchKey(raw.nom),
     departmentCode: codeDepartement,
     regionCode: codeRegion,
     population,

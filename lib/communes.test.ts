@@ -49,6 +49,7 @@ describe("toCommuneRow", () => {
     expect(toCommuneRow(rodez)).toEqual({
       inseeCode: "12202",
       name: "Rodez",
+      searchName: "rodez",
       departmentCode: "12",
       regionCode: "76",
       population: 24_469,

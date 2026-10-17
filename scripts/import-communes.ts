@@ -76,16 +76,17 @@ async function main() {
         const values = batch.map(
           (
             c,
-          ) => Prisma.sql`(${c.inseeCode}, ${c.name}, ${c.departmentCode}, ${c.regionCode},
+          ) => Prisma.sql`(${c.inseeCode}, ${c.name}, ${c.searchName}, ${c.departmentCode}, ${c.regionCode},
             ${c.population}, ${c.surfaceHa}, ${c.latitude}, ${c.longitude}, ${c.radiusKm},
             ${c.tier}::"Tier", true, ${importedAt})`,
         );
         await tx.$executeRaw`
-          INSERT INTO "Commune" ("inseeCode", "name", "departmentCode", "regionCode", "population",
+          INSERT INTO "Commune" ("inseeCode", "name", "searchName", "departmentCode", "regionCode", "population",
             "surfaceHa", "latitude", "longitude", "radiusKm", "tier", "isActive", "updatedAt")
           VALUES ${Prisma.join(values)}
           ON CONFLICT ("inseeCode") DO UPDATE SET
             "name" = EXCLUDED."name",
+            "searchName" = EXCLUDED."searchName",
             "departmentCode" = EXCLUDED."departmentCode",
             "regionCode" = EXCLUDED."regionCode",
             "population" = EXCLUDED."population",

@@ -22,8 +22,12 @@ describe("formatSetProgress", () => {
   });
 
   it("keeps a decimal under 10 %", () => {
-    expect(formatSetProgress(set(1, 887))).toBe("0,1 %");
     expect(formatSetProgress(set(80, 887))).toBe("9,0 %");
+  });
+
+  it("counts the cards of a large set under 1 %", () => {
+    expect(formatSetProgress(set(1, 887))).toBe("1/887");
+    expect(formatSetProgress(set(2, 4_030))).toBe("2/4\u202f030");
   });
 });
 

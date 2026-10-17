@@ -32,6 +32,33 @@
   --color-brand: #2f6fed;
   --color-brand-ink: #ffffff;
   --color-accent: #ff5a4f;
+
+  /* Booster opening: transforms only, so that it stays smooth on low-end phones. */
+  --animate-booster-shake: booster-shake 0.5s ease-in-out infinite;
+  --animate-card-pop: card-pop 0.6s ease-out 0.35s;
+
+  @keyframes booster-shake {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-6deg) scale(1.03);
+    }
+    75% {
+      transform: rotate(6deg) scale(1.03);
+    }
+  }
+
+  @keyframes card-pop {
+    0%,
+    100% {
+      scale: 1;
+    }
+    40% {
+      scale: 1.08;
+    }
+  }
 }
 
 /* One color per rarity tier, from the most common to the rarest.

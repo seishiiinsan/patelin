@@ -31,6 +31,10 @@ export function dbTierForPopulation(population: number): DbTier {
   return DB_TIERS[tierForPopulation(population).key];
 }
 
+export function dbTierForKey(key: TierKey): DbTier {
+  return DB_TIERS[key];
+}
+
 // Label and color key of a tier stored in the database.
 export function tierFromDb(dbTier: DbTier): Tier {
   return TIERS.find((tier) => DB_TIERS[tier.key] === dbTier) ?? TIERS[0];

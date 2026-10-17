@@ -29,6 +29,7 @@
     "data:contours": "tsx scripts/build-contours.ts",
     "data:sets": "tsx scripts/build-sets.ts",
     "data:check": "tsx scripts/check-data.ts",
+    "data:fixture": "tsx scripts/seed-fixture.ts",
     "data:import": "npm run data:communes && npm run data:photos && npm run data:sets && npm run data:contours && npm run data:check"
   },
   "dependencies": {

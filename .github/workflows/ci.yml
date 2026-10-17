@@ -50,6 +50,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx prisma migrate deploy
+      # A few communes instead of the full import, then the tests that need a database.
+      - run: npm run data:fixture
+      - run: npm run test:db
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - uses: actions/upload-artifact@v7

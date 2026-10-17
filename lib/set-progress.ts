@@ -8,9 +8,10 @@ export type SetProgress = {
   size: number;
 };
 
-// Small sets read as a count ("4/12"), large ones as a percentage ("41 %").
+// Small sets read as a count ("4/12"), large ones as a percentage ("41 %") once past 1 %.
 const COUNT_UP_TO = 120;
 
+const count = new Intl.NumberFormat("fr-FR");
 const percent = (digits: number) =>
   new Intl.NumberFormat("fr-FR", {
     maximumFractionDigits: digits,
@@ -18,8 +19,9 @@ const percent = (digits: number) =>
   });
 
 export function formatSetProgress({ owned, size }: SetProgress): string {
-  if (size <= COUNT_UP_TO) return `${owned}/${size}`;
   const value = (owned / size) * 100;
+  if (size <= COUNT_UP_TO || value < 1)
+    return `${count.format(owned)}/${count.format(size)}`;
   // Rounded down, so that a set only reads 100 % once complete.
   if (value < 10) return `${percent(1).format(Math.floor(value * 10) / 10)} %`;
   return `${percent(0).format(Math.floor(value))} %`;

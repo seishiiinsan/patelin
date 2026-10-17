@@ -1,0 +1,11 @@
+// Prisma schema for Patelin. The connection URL lives in prisma.config.ts.
+// Models arrive with their phase: communes in phase 1, accounts in phase 2, cards in phase 3.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}

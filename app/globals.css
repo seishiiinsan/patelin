@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff8ec;
+  --foreground: #1f2433;
+  --surface: #ffffff;
+  --muted: #646b7d;
+  --border: #ead9bd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #161a26;
+    --foreground: #f4efe6;
+    --surface: #212636;
+    --muted: #a3a9b8;
+    --border: #343a4d;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-fredoka);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-brand: #2f6fed;
+  --color-brand-ink: #ffffff;
+  --color-accent: #ff5a4f;
+}
+
+/* One color per rarity tier, from the most common to the rarest.
+   `static` always emits the variables: code reads them as var(--color-tier-<key>). */
+@theme static {
+  --color-tier-commune: #8a94a6;
+  --color-tier-peu-commune: #3fae5a;
+  --color-tier-rare: #2f80ed;
+  --color-tier-epique: #8b5cf6;
+  --color-tier-legendaire: #f5a623;
+  --color-tier-mythique: #e83e8c;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

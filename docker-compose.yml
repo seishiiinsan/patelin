@@ -1,0 +1,22 @@
+# Local development services. Production runs on the OVH VPS through Coolify.
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: patelin
+      POSTGRES_PASSWORD: patelin
+      POSTGRES_DB: patelin
+    ports:
+      - "5432:5432"
+    volumes:
+      # Postgres 18 images keep their data under /var/lib/postgresql/<version>.
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U patelin -d patelin"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+
+volumes:
+  pgdata:

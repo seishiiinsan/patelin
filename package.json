@@ -21,7 +21,14 @@
     "db:migrate": "prisma migrate dev",
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "data:communes": "tsx scripts/import-communes.ts",
+    "data:photos": "tsx scripts/import-photos.ts",
+    "data:postcards": "tsx scripts/import-postcards.ts",
+    "data:contours": "tsx scripts/build-contours.ts",
+    "data:sets": "tsx scripts/build-sets.ts",
+    "data:check": "tsx scripts/check-data.ts",
+    "data:import": "npm run data:communes && npm run data:photos && npm run data:sets && npm run data:contours && npm run data:check"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
@@ -47,6 +54,7 @@
     "eslint-config-next": "16.4.2",
     "eslint-config-prettier": "10.1.8",
     "jsdom": "30.1.3",
+    "mapshaper": "0.7.87",
     "prettier": "3.9.10",
     "prettier-plugin-tailwindcss": "0.8.1",
     "prisma": "7.10.1",
@@ -60,6 +68,8 @@
     "prisma@7.10.1": true,
     "esbuild@0.28.2": true,
     "unrs-resolver@1.12.2": true,
-    "fsevents": false
+    "fsevents": false,
+    "better-sqlite3": false,
+    "msgpackr-extract": false
   }
 }

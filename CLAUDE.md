@@ -8,6 +8,7 @@ Free web card game about French communes. The full spec and the 132-step roadmap
 
 - `npm run db:up` starts PostgreSQL in Docker; `npm run db:migrate` applies Prisma migrations.
 - `npm run lint`, `npm run typecheck`, `npm run format:check` and `npm test` must pass before any commit. CI runs them, plus `npm run test:e2e`.
+- `npm run data:import` fills the database (communes, photos, sets, contours) and runs `data:check`; `data:postcards` is a separate ~45 min resumable run. Every data script is idempotent.
 - `npm run test:e2e` needs the database up and Chromium installed (`npx playwright install chromium`). It starts `next dev` on port 3100; Next.js refuses a second dev server in the same project, so when one is already running, pass its port with `E2E_PORT=<port>` to reuse it.
 
 ## Conventions
@@ -20,3 +21,7 @@ Free web card game about French communes. The full spec and the 132-step roadmap
 - Log on the server with `logger` from `lib/logger.ts`, never `console.log`.
 - npm 12 blocks dependency install scripts: a new dependency that needs one must be approved with `npm install-scripts approve <pkg>`.
 - Rarity tiers and their thresholds live in `lib/tiers.ts`; tier colors are the `--color-tier-*` tokens in `app/globals.css`.
+- Client hooks that read the URL (`usePathname`, `useSearchParams`) must render under `<Suspense>` (see `components/site-header.tsx`), or dynamic routes fail to prerender.
+- Commune photos are Wikimedia thumbnails rendered with `next/image` (hosts allowed in `next.config.ts`), so browsers never call Wikimedia; always show the stored author and license.
+- The public map files (`public/geo/`) carry INSEE codes only, never commune names: the map must not help a placement. DROM appear as insets on the France map; `lib/drom-insets.ts` converts between inset and real coordinates.
+- Communes are never deleted: one that disappears from the INSEE list gets `isActive = false` and leaves the draw.

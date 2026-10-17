@@ -1,5 +1,5 @@
 // Prisma schema for Patelin. The connection URL lives in prisma.config.ts.
-// Models arrive with their phase: communes in phase 1, accounts in phase 2, cards in phase 3.
+// Accounts arrive in phase 2, cards in phase 3.
 
 generator client {
   provider = "prisma-client"
@@ -8,4 +8,106 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+// Rarity tiers, from the most common to the rarest (thresholds in lib/tiers.ts).
+enum Tier {
+  COMMUNE
+  PEU_COMMUNE
+  RARE
+  EPIQUE
+  LEGENDAIRE
+  MYTHIQUE
+}
+
+model Region {
+  code        String       @id
+  name        String
+  // INSEE code of the regional capital.
+  chefLieu    String
+  departments Department[]
+  communes    Commune[]
+}
+
+model Department {
+  code       String    @id
+  name       String
+  regionCode String
+  region     Region    @relation(fields: [regionCode], references: [code])
+  // INSEE code of the prefecture.
+  chefLieu   String
+  communes   Commune[]
+
+  @@index([regionCode])
+}
+
+model Commune {
+  inseeCode      String     @id
+  name           String
+  departmentCode String
+  department     Department @relation(fields: [departmentCode], references: [code])
+  regionCode     String
+  region         Region     @relation(fields: [regionCode], references: [code])
+  population     Int
+  surfaceHa      Float
+  latitude       Float
+  longitude      Float
+  // Equivalent radius √(surface / π) in km, floored at 1.5 km: the unit of placement tiers.
+  radiusKm       Float
+  tier           Tier
+  // False once a commune disappears from the INSEE list (merged into another one).
+  // Its cards stay valid; it just leaves the draw.
+  isActive       Boolean    @default(true)
+
+  // Photo from Wikimedia Commons (via Wikidata P18), served through next/image.
+  photoFile       String?
+  photoThumbUrl   String?
+  photoAuthor     String?
+  photoLicense    String?
+  photoLicenseUrl String?
+
+  // Wikimedia Commons category of the commune (Wikidata P373), where postcards are looked up.
+  commonsCategory String?
+
+  // Public-domain old postcard, used by the rare "carte postale ancienne" variant.
+  postcardFile     String?
+  postcardThumbUrl String?
+  postcardAuthor   String?
+  postcardLicense  String?
+  // When data:postcards last looked for a postcard, so that an interrupted run can resume.
+  postcardCheckedAt DateTime?
+
+  setMembers SetMember[]
+  updatedAt  DateTime    @updatedAt
+
+  @@index([departmentCode])
+  @@index([regionCode])
+  @@index([tier])
+  @@index([name])
+}
+
+enum SetType {
+  DEPARTMENT
+  REGION
+  PREFECTURES
+  HOMONYMS
+}
+
+model CardSet {
+  slug    String      @id
+  type    SetType
+  name    String
+  members SetMember[]
+
+  @@index([type])
+}
+
+model SetMember {
+  setSlug   String
+  set       CardSet @relation(fields: [setSlug], references: [slug], onDelete: Cascade)
+  inseeCode String
+  commune   Commune @relation(fields: [inseeCode], references: [inseeCode])
+
+  @@id([setSlug, inseeCode])
+  @@index([inseeCode])
 }

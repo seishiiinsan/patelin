@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Navigation } from "./navigation";
+import { Suspense } from "react";
+import { Navigation, NavigationLinks } from "./navigation";
 
 export function SiteHeader() {
   return (
@@ -11,7 +12,9 @@ export function SiteHeader() {
         >
           Patelin
         </Link>
-        <Navigation />
+        <Suspense fallback={<NavigationLinks pathname={null} />}>
+          <Navigation />
+        </Suspense>
       </div>
     </header>
   );

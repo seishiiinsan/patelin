@@ -11,15 +11,14 @@ const NAV_ITEMS = [
   { href: "/profil", label: "Profil" },
 ] as const;
 
-function isActive(pathname: string, href: string) {
+function isActive(pathname: string | null, href: string) {
+  if (pathname === null) return false;
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
 }
 
 // Desktop: links in the header. Mobile: a tab bar fixed at the bottom of the screen.
-// Only one of the two is displayed at a time, so screen readers meet a single navigation.
-export function Navigation() {
-  const pathname = usePathname();
-
+// `pathname` null renders it with no active tab: the prerendered shell, before the URL is known.
+export function NavigationLinks({ pathname }: { pathname: string | null }) {
   return (
     <nav
       aria-label="Navigation principale"
@@ -47,4 +46,9 @@ export function Navigation() {
       </ul>
     </nav>
   );
+}
+
+// Highlights the current section. usePathname() is request data, so render it under <Suspense>.
+export function Navigation() {
+  return <NavigationLinks pathname={usePathname()} />;
 }

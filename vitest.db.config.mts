@@ -9,7 +9,13 @@ export default defineConfig({
   test: {
     environment: "node",
     include: ["**/*.db.test.ts"],
-    exclude: ["node_modules/**", ".next/**", "generated/**", "e2e/**"],
+    exclude: [
+      "node_modules/**",
+      ".next/**",
+      "generated/**",
+      "e2e/**",
+      ".claude/**",
+    ],
     setupFiles: ["dotenv/config"],
   },
 });

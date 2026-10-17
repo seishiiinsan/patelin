@@ -28,7 +28,13 @@ export async function GET(request: Request) {
       },
       boosters: {
         orderBy: { createdAt: "asc" },
-        select: { kind: true, departmentCode: true, createdAt: true, openedAt: true, communeCodes: true },
+        select: {
+          kind: true,
+          departmentCode: true,
+          createdAt: true,
+          openedAt: true,
+          communeCodes: true,
+        },
       },
       cardStacks: {
         orderBy: { firstObtainedAt: "asc" },
@@ -36,7 +42,12 @@ export async function GET(request: Request) {
       },
       cardInstances: {
         orderBy: { obtainedAt: "asc" },
-        select: { inseeCode: true, variant: true, tier: true, obtainedAt: true },
+        select: {
+          inseeCode: true,
+          variant: true,
+          tier: true,
+          obtainedAt: true,
+        },
       },
     },
   });

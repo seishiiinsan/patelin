@@ -17,6 +17,8 @@ export default defineConfig({
       "generated/**",
       "e2e/**",
       "**/*.db.test.ts",
+      // Git worktrees of other Claude Code sessions.
+      ".claude/**",
     ],
   },
 });

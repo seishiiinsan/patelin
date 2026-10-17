@@ -19,6 +19,8 @@ const eslintConfig = defineConfig([
     "generated/**",
     "playwright-report/**",
     "test-results/**",
+    // Git worktrees of other Claude Code sessions, with their own node_modules.
+    ".claude/**",
   ]),
 ]);
 

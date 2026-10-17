@@ -26,6 +26,15 @@ npm run dev
 
 L'application tourne sur [http://localhost:3000](http://localhost:3000). La route [/api/health](http://localhost:3000/api/health) vérifie que la base répond.
 
+## Connexion
+
+Les joueurs se connectent avec Google ou Discord (Better Auth). Un fournisseur n'apparaît sur `/connexion` que si ses deux identifiants sont renseignés dans `.env` :
+
+- **Google** : créer un « ID client OAuth » (application Web) sur [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials), avec l'URI de redirection `<BETTER_AUTH_URL>/api/auth/callback/google`, puis remplir `GOOGLE_CLIENT_ID` et `GOOGLE_CLIENT_SECRET`.
+- **Discord** : créer une application sur [discord.com/developers/applications](https://discord.com/developers/applications), ajouter la redirection `<BETTER_AUTH_URL>/api/auth/callback/discord` dans OAuth2, puis remplir `DISCORD_CLIENT_ID` et `DISCORD_CLIENT_SECRET`.
+
+En local, `AUTH_DEV_LOGIN="true"` ajoute une connexion par e-mail et mot de passe, sans compte Google ni Discord. Elle sert aussi aux tests de bout en bout. Ne jamais l'activer en production.
+
 ## Données
 
 `npm run data:import` remplit la base en quelques minutes, puis vérifie sa cohérence. Chaque script peut être relancé sans créer de doublon.

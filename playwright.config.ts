@@ -31,5 +31,11 @@ export default defineConfig({
     url: baseURL,
     reuseExistingServer: !isCI,
     timeout: 180_000,
+    env: {
+      // Tests sign in with email + password instead of Google or Discord.
+      AUTH_DEV_LOGIN: "true",
+      AUTH_DISABLE_RATE_LIMIT: "true",
+      BETTER_AUTH_URL: baseURL,
+    },
   },
 });

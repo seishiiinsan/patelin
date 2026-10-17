@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fredoka, Nunito } from "next/font/google";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
@@ -31,10 +32,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col font-sans">
         <SiteHeader />
-        {/* Bottom padding keeps content clear of the mobile tab bar. */}
-        <main className="mx-auto w-full max-w-5xl flex-1 px-4 pt-6 pb-24 md:pb-10">
+        <main className="mx-auto w-full max-w-5xl flex-1 px-4 pt-6 pb-10">
           {children}
         </main>
+        <SiteFooter />
       </body>
     </html>
   );

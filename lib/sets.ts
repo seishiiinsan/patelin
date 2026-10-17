@@ -1,4 +1,5 @@
 import type { SetType } from "@/generated/prisma/enums";
+import { stripAccents } from "./text";
 
 // A name shared by at least this many communes makes a homonym set (19 sets, 167 cards in 2026).
 export const HOMONYM_MIN_COMMUNES = 8;
@@ -21,9 +22,7 @@ type RegionInput = { code: string; name: string };
 
 // "Sainte-Colombe" → "sainte-colombe", "Île-de-France" → "ile-de-france"
 export function slugify(text: string): string {
-  return text
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // drop accents
+  return stripAccents(text)
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");

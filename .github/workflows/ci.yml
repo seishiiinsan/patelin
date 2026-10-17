@@ -40,6 +40,8 @@ jobs:
           --health-retries 15
     env:
       DATABASE_URL: postgresql://patelin:patelin@localhost:5432/patelin
+      # Test-only secret: the CI database is thrown away after the run.
+      BETTER_AUTH_SECRET: ci-only-secret-not-used-anywhere-else
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
